@@ -7,11 +7,13 @@ int main()
 {
     double x;
     cin >> x;
+    cout << (int)x << " " << x << "\n";
     int i = 0;
-    while(x != int(x))
+    while(x != (int)x)
     {
       x *= 10;
       i++;
+      cout << (int)x << " " << x << "\n";
     }
     i = pow(10, i);
     while(0 == 0)
