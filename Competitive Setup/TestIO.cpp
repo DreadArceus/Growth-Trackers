@@ -40,16 +40,14 @@ int main()
 {
   ifstream checkFile, inFile("/Users/dreadarceus/github/.../input.txt");
   ofstream outFile;
-  bool local = false;
   if(inFile.is_open())
   {
-    local = true;
     checkFile.open("/Users/dreadarceus/github/.../correctOutput.txt");
     outFile.open("/Users/dreadarceus/github/.../output.txt");
-    func(inFile, outFile, checkFile, local);
+    func(inFile, outFile, checkFile, inFile.is_open());
   }
   else
   {
-    func(cin, cout, checkFile,local);
+    func(cin, cout, checkFile, inFile.is_open());
   }
 }
