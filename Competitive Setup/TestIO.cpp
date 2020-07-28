@@ -6,50 +6,33 @@ int solve(int n)
   int x = 0;
   return x;
 }
-template<class Ti, class To>
-void func(Ti &i, To &o, ifstream &c, bool loc)
+int main()
 {
-  int t  = 0;
-  i >> t;
+  int t = 0;
+  ifstream inFile("/Users/dreadarceus/github/.../input.txt");
+  ifstream checkFile("/Users/dreadarceus/github/.../correctOutput.txt");
+  ofstream outFile("/Users/dreadarceus/github/.../output.txt");
+  outFile << "...\n";
+  inFile >> t;
   while(t--)
   {
     int n = 0;
-    i.ignore(3, '\n');
-    i >> n;
+    inFile.ignore(3, '\n');
+    inFile >> n;
     int var = solve(n);
-    if(loc)
+    int ans = 0;
+    checkFile >> ans;
+    checkFile.ignore(3, '\n');
+    cout << "Testing... ";
+    if(var != ans)
     {
-      int ans = 0;
-      c >> ans;
-      c.ignore(3, '\n');
-      cout << "Testing... ";
-      if(var != ans)
-      {
-        cout << "Wrong Answer\n";
-        o << "x ";
-      }
-      else
-      {
-        cout << "Passed\n";
-      }
+      cout << "Wrong Answer\n";
+      outFile << "x ";
     }
-    o << var << "\n";
-  }
-}
-int main()
-{
-  ifstream checkFile, inFile("/Users/dreadarceus/github/Codewars/Kata/6-Kyu/Find_the_parity_outlier/input.txt");
-  ofstream outFile;
-  bool local = false;
-  if(inFile.is_open())
-  {
-    local = true;
-    checkFile.open("/Users/dreadarceus/github/.../correctOutput.txt");
-    outFile.open("/Users/dreadarceus/github/.../output.txt");
-    func(inFile, outFile, checkFile, local);
-  }
-  else
-  {
-    func(cin, cout, checkFile,local);
+    else
+    {
+      cout << "Passed\n";
+    }
+    outFile << var << "\n";
   }
 }
