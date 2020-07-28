@@ -7,7 +7,7 @@ int solve(int n)
   return x;
 }
 template<class Ti, class To>
-void func(Ti &i, To &o, ifstream &c, bool loc)
+void func(Ti &i, To &o, ifstream &c)
 {
   int t  = 0;
   i >> t;
@@ -17,7 +17,7 @@ void func(Ti &i, To &o, ifstream &c, bool loc)
     i.ignore(3, '\n');
     i >> n;
     int var = solve(n);
-    if(loc)
+    if(c.is_open())
     {
       int ans = 0;
       c >> ans;
@@ -44,10 +44,10 @@ int main()
   {
     checkFile.open("/Users/dreadarceus/github/.../correctOutput.txt");
     outFile.open("/Users/dreadarceus/github/.../output.txt");
-    func(inFile, outFile, checkFile, inFile.is_open());
+    func(inFile, outFile, checkFile);
   }
   else
   {
-    func(cin, cout, checkFile, inFile.is_open());
+    func(cin, cout, checkFile);
   }
 }
