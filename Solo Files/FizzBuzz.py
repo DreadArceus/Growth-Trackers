@@ -1,0 +1,1 @@
+print(["FizzBuzz" if (x+1) % 15 == 0 else ("Fizz" if (x+1) % 3 == 0 else ("Buzz" if x+1 % 5 == 0 else x+1))  for x in range(100)])
